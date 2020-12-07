@@ -1,0 +1,144 @@
+|- Player -|
+
+Spilleren kan gi seg selv et navn (Kan være et input hvor du skriver in noe og blir lageret i et variabler, bare kosmetisk intil videre)
+
+Spilleren kan velge en rase som 'Menneske' 'Dverg' 'Alv' 'Ork' og andre fantasiraser
+som har sine egne bonuser og kanskje negative "bonuser" også.
+
+Spilleren kan velge noen 'Classes' og see hva dems spesialitet og hoved attribute er.
+Du kan også see hva slags stats de starter med og hva de blir bedre på med hvert LVL.
+
+Spilleren har også et 'Inventory' der de kan ha en begrenset menge 'Items' og en 'Equipment' meny hvor du kan endre utstyret du har på deg.
+
+
+|- Stats og Attributes -|
+En viktik ting å nevne om 'Attributes' og 'Stats' er at noen ting er additivt og andre ting er multiplikativt.
+Noen ting også har diminishing returns for å ikke forårsake stagnering i kamp. 
+Hvis man kunne ha en 'Ability' som gir deg 50% 'Dodge' + en 'Item' som gir 35% 'Dodge', så burde man ikke addere
+for da ender man opp med 85% 'Dodge Chance' og blir vannskelig å bli truffet, både for spilleren og fiender.
+Hvis man heller legger dem til med å multiplisere så får man heller 67,5% 'Dodge Chance'
+
+Attributes:
+
+Det er 3 hoved 'Attributes'; 'Agility', 'Strenght' og 'Intellect'.
+Hver av disse Attributene har sine egene stats de endrer for hver gang du får et poeng i et av dem.
+Du får mere Damage fra din 'Class' sin hoved Attribute, så en 'Warrior' får mere Damage fra 'Strenght'
+
+Strenght: Øker din Health Points, Health Regeneration, Magic Armor
+
+Agility: Øker Dodge, Turn Speed, Physical Armor, 
+
+Intellect: Øker Mana Points, Mana Regeneration, Magic Amplification,
+
+Stats:
+Hva hver 'Stat' gjør i en kort oppsumering;
+
+Dodge: Øker sjansjen å ungå angrep.
+Health Points: Øker hvor mye liv du har.
+Health Regeneration: Øker hvor mye liv du får tilbake hver runde.
+Magic Amplification: Øker damage på Magic angrep.
+Magic Armor: Minsker hvor mye skade du tar fra Magic.
+Mana Points: Øker hvor mye Mana du har.
+Mana Regeneration: Øker hvor mye Mana du får tilbake hver runde.
+Physical Armor: Minsker hvor mye du tar fra fysiske angrep.
+Turn Speed: Minsker hvor lang tid du må vente før du gjøre en 'Action'
+
+Du har også flere stats som er utenfor Attribute systemet, disse er ofte gitt til 'Items' og 'Abilities';
+
+Accuracy: Øker sjansjen du gjør damage selv om noen 'Dodged' angrepet.
+Bash: En stat delt opp i tre deler, 'Chance', 'Duration' og 'Damage Bonus'.
+Health/Mana Aplification/Reduction: Forandrer hvor mye du får tilbake av Health eller Mana.
+Critical strike: En stat delt opp i to deler, 'Chance' og 'Bonus'. 'Chance' er hvor tilfeldig du får en 'Crit' og 'Bonus' er hvor mye du gjør av damage.
+Lifesteal: Du får tilbake et %-vis av damagen du gjorde tilbake som 'HP' og fungerer kun med 'Physical Attacks'.
+Status Resistance: Reduserer varigheten på en 'Debuff'
+
+|- Combat -|
+Combat-systemet kjører under 'Active Time Battle' hvor du må vente på din tur før du kan gjøre noe.
+Å kjøre 'Active Time Battle' istedenfor tradisjonel rundebasert gir muligheter til å ha flere unike funksjoner
+som kan hende innenfor kampen mens du venter, som for eksempel; 
+
+Få fienden til å blø og ta skade over tid.
+Ha 'Abilities' som gjør ting over tid og bedre balansere det enn å bruke 'Turns' som gjør det vanskligere å lage kule 'Abilities' og 'Items'.
+Ha mere aktiv 'Regeneration' av 'HP' og 'MP'.
+Man kan bygge opp en karakter for å være kjapp i sine angrep.
+
+Combat'en vil kjøre på 'Ticks' som går fra 0 til 100 for spilleren og kan variere fra fiende til fiende.
+Når man når 100 i 'Ticks', så kan man gjøre en 'Action', som å angripe, bruke en item, forsøke å løpe vekk, og annet.
+Du kan minske tiden det tar før du kan gjøre en action igjen med 'Turn Speed'.
+Du kan øke tiden det tar før fienden kan gjøre en action med 'Slows' og 'Stuns'.
+
+
+|- Items and Equipment -|
+
+Du har 3 kategorier med 'Items', du har 'Consumables', 'Equipment' og 'Junk/Misc'.Abilities
+
+'Consumables' kan være ting som 'Potions', 'Poisons', 'Food', 'Bombs' og andre en-gangs gjenstander som har en funksjon.
+Disse kan være ting som gir deg en ny/midlertidlig 'Ability', 'Buffs', og andre positive eller negative effekter.
+Eksempel;
+
+ID: Consm_Potion_Uncommon_GHP
+Disp_Name: Greater Health Potion
+Disp_Desc: A potion that greatly heals you. On use, heals you instantly for {HP} and then {HPS} for {Ticks}.
+Disp_Art: "URL: Armor_Helmet_Legendary_HOTG.png"
+Type: Consumable
+Category: Potion
+Price: 50
+HP: 50
+HPS: 1
+Ticks: 25
+Function: Ability_Item_GreaterHeal (Gir brukeren +50HP hvis de er under maximum og healer for +1HP for hvert tick i 25 ticks)
+
+'Equipment' er ting som 'Swords', 'Helmets', 'Boots' og andre ting som du kan utstyre din karakter med.
+'Equipment' er en av de store tingene som styrer hvordan du bygger din karakter, de kan gi deg bonuser og effekter som bygger
+om hvordan du spiller din karakter. Det kan være alt fra et sverd som gir deg 'Life Steal' til en skjold som gir de som angriper deg
+en sjansje å bli 'Stunned'.
+
+'Junk/Misc' er ting som du finner som ikke har noe bruk og er enten brukt til 'Quests' eller som 'Vendor Trash'(Ting du kun selger for penger)
+
+
+|- Abilities -|
+
+Abilities går under 2 kategorier, 'Activatable' og 'Passive'.
+
+'Passive' funksjoner gir deg ofte bonuser som enter aktiveres under spesielle kondisjoner eller er altid aktiv.
+Eksempel kan være; 'If stunned, 25% to break out of it immidietly', 'Each consecutive hit on a single target gives you 14% Life Steal'
+og 'You become more Evasive, gaining 50% more Dodge'.
+
+'Activatable' funksjoner er mere direkte, det kan være alt fra å kaste magi, til å slå en fiende i huet og gi han en 'Debuff'.
+Eksempel; 'Throw a Fireball that deals 12 Magic Damage and leaves your enemy burning for 26 seconds, dealing 0.5 Magic Damage each Tick',
+'Confuse your enemy, making it less likely to hit you by 45%' og 'Swing your weapon at your enemies, hitting all combatants for 75% of your normal Physical Attack'.
+
+
+|- Character Races and Stats -|
+
+Each race and class will influence how the players characteristics will be set up.
+First you have "Racial" which will be the base and then you have "Class" which will be a modifier on top of base.
+The majority of base stats you have can be impacted by spells and magic, but some can not be influenced into negatives, like HP and MP.
+HP, HP/T, MP, MP/T can not be lower than the base, this will prevent some effects to push you down all the way down to 0.
+Damage, Agility, Intellect and Strenght can go down to a minimum of 1, this will prevent you from getting into negatives that might bug things out.
+
+
+Then you have Modifiers, which will be your spells, talents, buffs and debuffs that affect the character, both in positive and negative ways.
+
+
+
+In-depth attributes and stats
+
+Your Base HP, if you lose strenght temporarily somehow, this is the minimum hp you can reach.
+This value can not be influenced by anything other than your race.
+Some races are sturdier while others are frail. 
+Base HP: 100
+
+Your base Health Regeneration, this determines how much health you get back whenever a tick passes.
+A troll will have a higher regeneration than others, and elfs will have less regeneration.
+Base HP/t: Race dependant, will be very low to not give the player and enemies a very quick regen.
+
+Your Base MP, if you lose intellect temporarily somehow, this is the minimum mana you can reach.
+This value can not be influenced by anything other than your race.
+Some races are smarter than others and others might be less clever.
+Base MP: 50
+
+Your base Mana Regeneration, this determines how much mana you get back whenever a tick passes.
+An elf will have higher mana regeneration while an ogre might be a bit slower.
+Base MP/t: Race dependant, will be very low to not give the player and enemies a very quick regen.
+

@@ -1,0 +1,75 @@
+|- Player -|
+
+The player will be able to give their character a name (Done with an input that saves it to a variable.)
+The player will also be able to choose their characters race and class.
+
+Races can include: Human, Dwarf, Gnome, Orc, Goblin, Elf and more.
+Classes can include: Warrior, Mage, Rogue, Ranger, Barbarian and much, much more.
+
+Race controlls and changes most of your atributes and stats, and can include special abilities or traits that make them more unique and change how you play a class.
+Class controls and changes some of your atributes and stats, a warrior would have a higher strenght than a rogue even if they were a gnome.
+What class primarily controlls is playstyle, character idendity and flavor. You expect a rogue to use dirty tricks and be more agile while a
+warrior will use might and brute force to achieve their goals.
+
+The player will also have an inventory and equipment tab where they can view items, use, equip or discard them.
+The inventory will start out with a limitied ammount of slots availible at the beggining of the game and can later expand their inventory.
+
+
+|- Attributes & Stats -|
+
+Attributes:
+
+Attributes are your characters primary stats, and one of them are going to be your characters primary attribute that control your attack damage scaling. Attributes contribute to your Stat pool, with each poing in an attribute increasing points in several stats.
+
+Strenght: is the primary attribute of mighty warriors, increasing their overall health, its regeneration and their defence against magic attacks. 
+
+Agility: is the primary attribute of sneaky rogues, increasing their overall dodge, turn speed and their defence against physical attacks.
+
+Intellect: is the primary attribute of wise sorcerer, increasing their overall mana, its regeneration and amplification of magic and other abilities.
+
+Stats:
+
+Stats are your characters secondary pool of characteristics, influenced by your attributes, the items you find and abilities. These stats improve everything from your chance to dodge, mana regeneration to health points. 
+
+Some stats will be additive while others will be multiplicative to combat the unfairness of having 80% dodge chance. An example of how dodge could get out of hand; you have an ability that gives you 50% dodge, then you get an item that gives 35% dodge, that would be 85% dodge, meanwhile if you multiplied you would have 67.5%.
+
+Dodge: Increases the chance of an attack being dodged. Multiplicative to prevent cheese.
+
+Health: How much damage you can take before you are defeated. Mostly addditive.
+
+HP/T: How much health you regenerate for each tick cycle. This value should be either kept low, or the tick cycles need to be short.
+
+Magic Amplification: Increases the values used in magical spells. Multiplicative with the magic it changes. Example; You have a healing spell that heals you for 225HP and you have a magic amp of 25%, meaning your heal will be actually giving you 281,25HP back. Only works with magic, not physical.
+
+Magic Armor: Reduces incoming magic damage. Multiplicative with the magic it absorbs. Example;
+A fireball just hit you. It deals 300 magic damage. You have 38% magic armor. Your resistance to magic changes the damage you take from 300, down to 186 damage.
+
+Mana: How much mana points you have availible to spend on abilities. Mostly additive.
+
+MP/T: How much mana you regenerate for each tick cycle. This value should be either kept low, or the tick cycles need to be short.
+
+Physical Armor: Reduces incoming physical damage. Multiplicative with the damage it absorbs. Example;
+A bull rams you, dealing 175 damage. You have 26% physical armor. Your resistance to physical damage changes the damage you take from 175, down to 129,5 damage.
+
+Turn Speed: Increases your PlayerBaseTick.
+
+
+Ternary:
+
+There are also ternary stats and effects that the player will not have by default and can only be obtained from spells and items.
+
+Accuracy: Counteracts dodge, 
+
+Amplification: 
+
+Reduction:
+
+Status Resistance: Reduces the lenght of how long negative effects lasts.
+
+
+|- Combat -|
+
+The combat system will run like the "Active Time Battle" system like Final Fantasy.
+The system works like this: you and the enemy both start combat without a turn.
+To get a turn, you need to wait for your turn bar to become full. Once it is full, you have a turn and can do an action. When you do an action, your turn is over, time resumes and the bars start to fill up again. 
+

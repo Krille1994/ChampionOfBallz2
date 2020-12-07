@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#app {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Character Creation */
+
+#showCharacterCreation {
+    width: 100vw;
+    height: 100vh;
+    background: url("images/dessert.png");
+    background-size: 100vw 100vh;
+    display: grid;
+    font-size: 2vw;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5fr 1fr;
+    grid-template-areas: 'stats options'
+                            'save save';
+}
+#displayCharacterCreationStatsAndAttributes {
+    grid-area: stats;
+    margin: auto;
+}
+#startAdventure {
+    grid-area: save;
+    text-align: center;
+    margin: auto; 
+}
+#characterCreationOptions {
+    grid-area: options;
+    margin: auto;
+}
+
+/* Region 1 */
+
+
+/* Inventory */
+.displayInventory {
+    width: 60vw;
+    height: 60vh;
+    z-index: 100;
+    position: absolute;
+    margin: 20vh 20vw;
+    background-color: brown;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 0.2% 0.4% 0.2% 0.2%;
+    gap: 0.2%;
+}
+#inventoryStatsArea {
+    background-color: burlywood;
+}
+#inventoryStatsName {
+    text-align: center;
+}
+#inventoryStatsPack {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+}
+#inventoryOnPersonLeftItems, #inventoryOnPersonRightItems {
+    display: flex;
+    flex-direction: column;
+}
+.inventoryOnPersonItem {
+    background-color: blueviolet;
+    margin: 10%;
+    height: 5vh;
+}
+#inventoryCharacterDisplay {
+    height: auto;
+    width: 75%;
+}
+#characterImageDiv {
+    display: flex;
+    justify-content: center;
+}
+#topInventoryPlayerStats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#bottomInventoryPlayerStats {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+#inventoryItemsArea {
+    background-color: cadetblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.inventoryItems {
+    margin: 2%;
+    width: 60%;
+    height: 60%;
+}
+.itemsUnlocked {
+    border: 3px solid grey;
+}

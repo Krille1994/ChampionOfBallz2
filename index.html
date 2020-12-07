@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Champion of Ballz 2</title>
+</head>
+
+<body>
+
+    <script src="modell.js"></script>
+    <script src="controller.js"></script>
+    <script src="saveProgress.js"></script>
+    <script src="showVariabler.js"></script>
+    <script src="inventory.js"></script>
+
+
+
+    <div id="app"></div>
+
+    <script>
+
+        let app = document.getElementById('app');
+        show('startMenu');
+        function show(site) {
+            if (site != 'optionsMenu') {
+                rememberSite = site;
+            }
+            if (site == 'startMenu') {
+                startMenuFunction();
+                app.innerHTML = startMenu;
+            }
+            else if (site == 'optionsMenu') {
+                optionsMenuFunction();
+                app.innerHTML = optionsMenu;
+            }
+            else if (site == 'customizeNewCharacter') {
+                customizeNewCharacterFunction();
+                app.innerHTML = customizeNewCharacter;
+            }
+            else if (site == 'region1') {
+                region1Function();
+                app.innerHTML = region1;
+            }
+            else if (site == 'rememberSite') {
+                app.innerHTML = rememberSite;
+            }
+            else { console.log('Missing page, look for quotes in eventhandler, if it has an if statement in show(), a function in showVariables.js or the variable is decleared in modell.js') }
+
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

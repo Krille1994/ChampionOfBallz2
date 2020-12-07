@@ -1,0 +1,82 @@
+Main Menu
+
+Hovedmenyen kan bestå av noen sett med knapper.
+
+- New Game - Start et nytt spill, dette vil overskrive dine tidligere 'Saves' med mindre vi lager et lagringssystem som tilater deg flere 'Saves'
+- Load Game - Her kan du fortsette videre fra der du lagret sist eller hvor spillet lagret din fremgang sist.Action
+- Options - Her kan du justere om instillinger for å få en justert spillopplevelse. Dette kan være alt fra en større skriftstørrelse, autolagring og hvor lang tid det er mellom hver gang, themes og annet visuelt man kan endre. Hvis lyd er inkludert i spillet så er dette hvor du justerer volum.
+
+
+Combat Turns
+
+Standarden er å starte på 0 ticks for spilleren og fienden med mindre enten fiender eller spilleren ble overasket av hverandre, hvor enten spilleren eller fienden starter med en høyere tick verdi fra før av.
+
+
+let PlayerMinimumTick - Altid 0 med mindre spilleren har noe som gir dem en annen verdi. Dette er hva PlayerCurrentTick reseter seg til når spilleren har gjort en action.
+
+let PlayerMaximumTick - Altid 100 med mindre spilleren har noe som gir dem en annen verdi. Denne styrer hva PlayerCurrentTick må nå før spilleren kan gjøre en Action.
+
+let PlayerCurrentTick - Denne styrer når du kan gjøre en action. er denne ikke lik eller høyere enn PlayerMaximumTick så må spilleren vente til den er det.
+
+let PlayerBaseTick - Hvor mye du fyller opp PlayerCurrentTick etter hvær sjekk som ikke passerer PlayerMaximumTick. Det kan være alt fra 0,0001 til 100 avhengig av hvor rask combaten skal være, lurt at det er en verdi som skallerer bra med 'Turn Speed' og andre statuseffekter.
+
+Spiller: 0 - 2 - 4 - 6 - 8
+Fiende: 0 - 1.5 - 3 - 4.5 - 6
+
+
+De samme basis variablene kan også bli brukt til fiender.
+
+
+
+
+
+
+ID: Armor_Helmet_Legendary_HOTG
+Disp_Name: Helmet of the Gods
+Disp_Desc: Stories say that this helmet once belonged to a powerfull godslayer
+Disp_Art: "URL: Armor_Helmet_Legendary_HOTG.png"
+Type: Armor
+Category: Helmet
+Price: 1000
+
+Attributes
+Strenght: 100
+Agility: 25
+Intellect: 50
+
+Stats
+Damage: 0
+PhysicalArmor:50
+MagicArmor:25
+HP: 250
+HPR: 5
+MP: 500
+MPR: 10
+TurnSpeed: 2
+
+
+ID: Consm_Potion_Uncommon_GHP
+Disp_Name: Greater Health Potion
+Disp_Desc: A potion that greatly heals you. On use, heals you instantly for {HP} and then {HPS} for {Ticks}.
+Disp_Art: "URL: Armor_Helmet_Legendary_HOTG.png"
+Type: Consumable
+Category: Potion
+Price: 50
+
+Attributes
+Strenght: 0
+Agility: 0
+Intellect: 0
+
+Stats
+Damage: 0
+PhysicalArmor:0
+MagicArmor:0
+HP: 50
+HPR: 1
+MP: 0
+MPR: 0
+TurnSpeed: 0
+Ticks: 25
+
+
