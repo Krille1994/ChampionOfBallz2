@@ -8,6 +8,20 @@
     height: 100vh;
 }
 
+/* Main Menu */
+
+.MainMenuButton {
+    margin-top: 10%;
+    margin-left: 40%;
+    width: 15%;
+    height: 15%;
+    font-size: 2vw;
+    text-align: center;
+    border-style: inset;
+    border-color: darkgrey;
+    background-color: burlywood;
+}
+
 /* Character Creation */
 
 #showCharacterCreation {
@@ -30,6 +44,9 @@
     grid-area: save;
     text-align: center;
     margin: auto; 
+    border-style: inset;
+    border-color: darkgrey;
+    background-color: burlywood;
 }
 #characterCreationOptions {
     grid-area: options;
@@ -38,6 +55,81 @@
 
 /* Region 1 */
 
+#explore1Continue {
+    position: absolute;
+    z-index: 10;    
+    width: 8vw;
+    height: 6vh;
+    margin-left: 90vw;
+    margin-top: 48vh;
+    font-size: 2vw;
+    text-align: center;
+    border-style: inset;
+    border-color: darkgrey;
+    background-color: burlywood;
+}
+#playerExploreBattle1 {
+    float:left;
+    margin-top: 40vh;
+    margin-left: 20vw;
+}
+
+#npcExploreBattle1 {
+    float:right;
+    margin-top: 40vh;
+    margin-right: 20vw;
+}
+#exploreBattle1Attacks {
+    position: absolute;
+    margin: 80vh 0 0 20vw;
+}
+#normalAttack1 {
+    background-color: rgb(107, 94, 94);
+    padding: 0.5vw;
+    float: left;
+    margin: 0.1vw;
+}
+#hardAttack1 {
+    background-color: brown;
+    padding: 0.5vw;
+    float: left;
+    margin: 0.1vw;
+}
+
+.blacksmithItemsUnlocked {
+    border: 2px solid grey;
+}
+#blacksmithingTable {
+    width: 3.5vw;
+    height: 7vh;
+    background-color: cadetblue;
+}
+#blacksmithInventory {
+    height: 60vh;
+    width: 37vw;
+    margin: 0 0 0 50vw;
+    background-color: brown;
+    padding: 0.2%;
+}
+.blacksmithInventoryItems {
+    width: 10.5%;
+    height: 11.7%;
+    float: left;
+    margin: 1%;
+    background-color: burlywood;
+}
+#blacksmithDisplayInventory {
+    width: 60vw;
+    height: 60vh;
+    z-index: 90;
+    position: absolute;
+    margin: -5vh 39vw;
+    background-color: brown;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 0.2% 0.4% 0.2% 0.2%;
+    gap: 0.2%;
+}
 
 /* Inventory */
 .displayInventory {

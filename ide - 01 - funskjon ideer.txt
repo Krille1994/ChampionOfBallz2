@@ -33,7 +33,7 @@ De samme basis variablene kan også bli brukt til fiender.
 
 ID: Armor_Helmet_Legendary_HOTG
 Disp_Name: Helmet of the Gods
-Disp_Desc: Stories say that this helmet once belonged to a powerfull godslayer
+Disp_Desc: Stories tell that the helmet once belonged to a powerfull godslayer
 Disp_Art: "URL: Armor_Helmet_Legendary_HOTG.png"
 Type: Armor
 Category: Helmet
@@ -80,3 +80,11 @@ TurnSpeed: 0
 Ticks: 25
 
 
+|- Formulas -|
+
+
+Gold calculation
+Gold = (4 + Math.floor(Math.random()*16)) * npcLevel * npcDifficulty;
+
+Experience calculation
+XP = (9 + Math.floor(Math.random()*10)) * npcLevel;

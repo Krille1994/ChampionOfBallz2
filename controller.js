@@ -14,7 +14,9 @@ function setChosenClass(thisClass) {
 }
 function startNewAdventure() {
     if (username) {
+        inventoryCanOpen = true;
         setCharacter();
+        shop1Restock();
         show('region1');
     }
 }
@@ -27,10 +29,11 @@ function setCharacter() {
             playerStats.damage = startRaceAndClassStats[i].damage;
             playerStats.crit = startRaceAndClassStats[i].crit;
             playerStats.dodge = startRaceAndClassStats[i].dodge;
-            
+
             playerStats.strength = startRaceAndClassStats[i].strength;
             playerStats.agility = startRaceAndClassStats[i].agility;
             playerStats.intellect = startRaceAndClassStats[i].intellect;
+            mainAttribute = startRaceAndClassStats[i].mainAtr;
         }
     }
 }

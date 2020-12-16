@@ -11,15 +11,23 @@
 
 <body>
 
+    <div id="app"></div>
+    
+
+
     <script src="modell.js"></script>
+    <script src="items.js"></script>
+    <script src="itemsDrop.js"></script>
+    <script src="region1/shop1.js"></script>
     <script src="controller.js"></script>
     <script src="saveProgress.js"></script>
     <script src="showVariabler.js"></script>
     <script src="inventory.js"></script>
+    <script src="region1/arena1.js"></script>
+    <script src="region1/exploreRegion1.js"></script>
+    <script src="region1/exploreBattle1.js"></script>
 
 
-
-    <div id="app"></div>
 
     <script>
 
@@ -47,6 +55,18 @@
             }
             else if (site == 'rememberSite') {
                 app.innerHTML = rememberSite;
+            }
+            else if (site == 'shop1') {
+                shop1Function();
+                app.innerHTML = shop1;
+            }
+            else if (site == 'explore1') {
+                explore1Function();
+                app.innerHTML = explore1;
+            }
+            else if (site == 'blacksmith') {
+                blacksmithFunction();
+                app.innerHTML = blacksmith;
             }
             else { console.log('Missing page, look for quotes in eventhandler, if it has an if statement in show(), a function in showVariables.js or the variable is decleared in modell.js') }
 

@@ -1,76 +1,77 @@
 let inventoryOpen = false;
+let inventoryCanOpen = false;
 const inventoryOnPerson = [
-    {item: 'head'},{item: 'neck'},
-    {item: 'shoul'},{item: 'back'},
-    {item: 'chest'},{item: 'wrist'},
-    {item: 'hand'},{item: 'waist'},
-    {item: 'legs'},{item: 'feet'},
-    {item: 'finger'},{item: 'finger2'},
-    {item: 'trinket'},{item: 'trinket2'},
+    { item: 'head' }, { item: 'neck' },
+    { item: 'shoul' }, { item: 'back' },
+    { item: 'chest' }, { item: 'wrist' },
+    { item: 'hand' }, { item: 'waist' },
+    { item: 'legs' }, { item: 'feet' },
+    { item: 'finger' }, { item: 'finger2' },
+    { item: 'trinket' }, { item: 'trinket2' },
 ];
 const inventoryItems = [
-    {item: 'item', locked: false},
-    {item: 'item', locked: false},
-    {item: 'item', locked: false},
-    {item: '', locked: false},
-    {item: '', locked: false},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
+    { item: 'item', locked: false },
+    { item: 'item', locked: false },
+    { item: 'item', locked: false },
+    { item: '', locked: false },
+    { item: '', locked: false },
+    { item: '', locked: false },
+    { item: '', locked: false },
+    { item: '', locked: false },
 
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
 
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
 
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
 
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
 
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
 
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
-    {item: '', locked: true},
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
+    { item: '', locked: true },
 ];
 
 
@@ -91,7 +92,7 @@ function displayInventory() {
         for (let i = 0; i < inventoryOnPerson.length / 2; i++) {
             html += `<div class="inventoryOnPersonItem">${inventoryOnPerson[i].item}</div>`;
         }
-        
+
         html += `</div>
             <div>
                 <div id="characterImageDiv"><img id="inventoryCharacterDisplay" src="images/balder.png"></div>
@@ -142,8 +143,10 @@ function displayInventory() {
     }
 }
 
-window.onkeydown = function(e){
-    if (e.keyCode === 73) {
-        displayInventory();
+window.onkeydown = function (e) {
+    if (inventoryCanOpen) {
+        if (e.keyCode === 73) {
+            displayInventory();
+        }
     }
 }

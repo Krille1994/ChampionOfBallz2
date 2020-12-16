@@ -22,10 +22,13 @@ Attributes:
 Attributes are your characters primary stats, and one of them are going to be your characters primary attribute that control your attack damage scaling. Attributes contribute to your Stat pool, with each poing in an attribute increasing points in several stats.
 
 Strenght: is the primary attribute of mighty warriors, increasing their overall health, its regeneration and their defence against magic attacks. 
+You get for each point in strenght; 20HP, 0,1HP/T, 0.08% magic armor.
 
 Agility: is the primary attribute of sneaky rogues, increasing their overall dodge, turn speed and their defence against physical attacks.
+You get for each point in agility; 0.05% Turn Speed, 0.16% Physical Armor, 0,08% Dodge.
 
 Intellect: is the primary attribute of wise sorcerer, increasing their overall mana, its regeneration and amplification of magic and other abilities.
+You get for each point in intellect; 0.07% Spell Amplification, 0.05% Mana Regeneration, 12MP.
 
 Stats:
 
@@ -50,6 +53,8 @@ MP/T: How much mana you regenerate for each tick cycle. This value should be eit
 
 Physical Armor: Reduces incoming physical damage. Multiplicative with the damage it absorbs. Example;
 A bull rams you, dealing 175 damage. You have 26% physical armor. Your resistance to physical damage changes the damage you take from 175, down to 129,5 damage.
+Armor Multiplier = {1 - (0.06 * Physical Armor) / (1 + 0.06 * |Physical Armor|)}
+
 
 Turn Speed: Increases your PlayerBaseTick.
 
@@ -73,3 +78,74 @@ The combat system will run like the "Active Time Battle" system like Final Fanta
 The system works like this: you and the enemy both start combat without a turn.
 To get a turn, you need to wait for your turn bar to become full. Once it is full, you have a turn and can do an action. When you do an action, your turn is over, time resumes and the bars start to fill up again. 
 
+let PlayerMinimumTick - Always zero, this is what PlayerCurrentTick gets set back to when you do an action.
+
+let PlayerMaximumTick - This is the max value that PlayerCurrentTick has to reach for you to be able to do an action. Default value should be 100 unless
+we want different values for different races and classes.
+
+let PlayerCurrentTick - This is the variable that controlls when you can do something and your progress on getting a turn in combat. Once it reaches the PlayerMaximumTick value, you get to do an action. Once you have done an action, it gets reset back to the value that PlayerMinimumTick is.
+
+let PlayerBaseTick - This is the rate of which your PlayerCurrentTick fills up. This value will be affected by Turn Speed and negative effects like slows.
+
+So how it will work is that once you enter combat, both you and your enemies CurrentTick value will start at MinimumTick. None of you will be able to do an action untill CurrentTick is the same or more than PlayerMaximumTick. 
+
+First a function checks if the player has reached MaximumTick, if you haven't then it will do "CurrentTick + BaseTick" and then move on to the enemy.
+Then it checks if the enemy has reached MaximumTick, if it hasn't then it will do "CurrentTick + BaseTick" and the cycle begins again.
+During the checks, the function will also run other things like applying DoT, HoT, Slow, Stun and other effects that happen during combat.
+These effects will only apply to the ones that have it during their respective check and won't do anything during the checks of others.
+Once someones CurrentTick has reached MaximumTick, they are given a turn to do something. Once they have done an action, the cycle continues where it left off. So if the player reached the MaximumTick first, then the enemy will be the next in the tick cycle after the player does something.
+
+Player
+0 - 4 - 8 - 12 - 16 - 20
+
+Enemy
+0 - 2 - 4 - 6 - 8 - 10
+
+
+|- Items and Equipment -|
+
+
+
+|- Drop chances and Loot Tables -|
+
+
+
+|- Upgrading -|
+
+In the game you will be able to upgrade your gear at the local blacksmith.
+Each blacksmith act the same, might look different from each other, but their function are the same no matter what region you are in and the items are from.
+
+We could go for either a few systems:
+
+
+
+System 1: Upgrade with Recipe
+
+Each item have their own upgrade costs;
+
+Rusty Iron Sword: 2 iron bars, 1 basic leather.
+Leather Cap: 3 basic leather, 1 linen cloth.
+
+When you have the materials required to upgrade your gear, you can go to any blacksmith in any region and upgrade your gear.
+When you upgrade your gear, all of its stats gets multiplied with a value, including upgrade costs.
+So the next upgrade cost would be with a multiplier of 3 as an example;
+
+Rusty Iron Sword: 6 iron bars, 3 basic leather.
+Leather Cap: 9 basic leather, 3 linen cloth.
+
+
+
+System 2: Upgrade with Gold
+
+You spend gold at the blacksmith to upgrade your item. Upgrade cost would be itemValue*upgradeMultiplier
+So if you have a Rusty Iron Sword that has a gold value of 50 and the upgrade multiplier is 1.75, it would cost 87 gold to upgrade it from
+common to uncommon.
+
+
+
+System 3: Combine Items
+
+You can combine items to create stronger ones if there is a combiner recipe availible.
+
+Rusty Iron Sword + Iron Bar = Sharp Iron Sword
+Sharp Iron Sword + Emerald = Sword of Agility
