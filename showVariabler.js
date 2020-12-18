@@ -91,6 +91,7 @@ function shop1Function() {
     shop1 = `
     <div id="inventoryDiv"></div>
     <div id="shop1Goods">${shop1Stock}</div>
+    <div id="shop1DisplayItemStats"></div>
     <div onclick="show('region1')" >leave</div>
     `;
 }
@@ -103,7 +104,7 @@ function explore1Function() {
 }
 function blacksmithFunction() {
     blacksmith = `<div id="inventoryDiv"></div>
-    <div id=blacksmithingTable></div>
+    <div id=blacksmithingTable ondrop="dropBlack(event)" ondragover="allowDropBlack(event)"></div>
     <div id="upgradeCost"></div>`
 
 

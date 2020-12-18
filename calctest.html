@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Racial and Class Stats the player has from list.
+        // These are never changed and are always the basis for every player variable.
+        let playerBaseArmor = 0;
+        let playerBaseHealth = 200;
+        let playerBaseHealthRegen = 3;
+
+        let playerBaseMana = 50;
+        let playerBaseManaRegen = 2;
+
+        let playerBaseAgility = 34
+        let playerBaseStrenght = 20;
+        let playerBaseIntellect = 14;
+
+        // Level Modifiers - your level and the attributes you get per level.
+        // The attributes are modified by class and race.
+
+        let playerLevel = 1;
+        let playerLevelModifier = playerLevel - 1;
+        let agilityPerLevel = 2.8;
+        let strenghtPerLevel = 2.2;
+        let intellectPerLevel = 1.4;
+
+        // Atribute Multipliers - how much stats you get per attribute.
+
+        const agilityArmorMultiplier = 0.16;
+        const agilitySpeedMultiplier = 0.05;
+        const agilityDodgeMultiplier = 0.08;
+
+        const strenghtHealthMultiplier = 20;
+        const strenghtRegenMultiplier = 0.1;
+        const strenghtArmorMultiplier = 0.08;
+
+        const intellectManaMultiplier = 12;
+        const intellectRegenMultiplier = 0.05;
+        const intellectSpellMultiplier = 0.07;
+
+        //Calculation tests
+
+        let playerArmorTotal = (playerBaseArmor + ((playerLevelModifier * agilityPerLevel) + playerBaseAgility * agilityArmorMultiplier));
+        console.log("Armor:",playerArmorTotal)
+        let playerPhysicalResistance =  (1-(0.06 * playerArmorTotal / (1 + 0.06 * Math.abs(playerArmorTotal))));
+        console.log("Physical Resistance:",(playerPhysicalResistance*100-100)*-1,"%")
+    </script>
+</body>
+
+</html>

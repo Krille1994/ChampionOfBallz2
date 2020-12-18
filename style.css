@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 #app {
     width: 100vw;
@@ -130,6 +131,17 @@
     padding: 0.2% 0.4% 0.2% 0.2%;
     gap: 0.2%;
 }
+/* Shop */
+
+.shop1Stock {
+    width: 5vw;
+    height: 6vh;
+}
+#shop1DisplayItemStats {
+    position: absolute;
+    z-index: 15;
+    margin: 20vh 0 0 30vw;
+}
 
 /* Inventory */
 .displayInventory {
@@ -190,10 +202,21 @@
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .inventoryItems {
-    margin: 2%;
-    width: 60%;
-    height: 60%;
+    margin: 1%;
+    width: 5vw;
+    height: 5vh;
 }
 .itemsUnlocked {
     border: 3px solid grey;
+}
+#inventoryButtons {
+    width: 20vw;
+    position: absolute;
+    z-index: 20;
+    margin: 57vh 0 0 30vw;
+}
+#inventoryButtons btn {
+    float: left;
+    width: 5vw;
+    height: 2vh;
 }

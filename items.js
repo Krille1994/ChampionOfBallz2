@@ -1,6 +1,6 @@
 const allItems = [
     {
-        ID: 'Armor_Helmet_Legendary_HOTG',
+        ID: 'Armor_Head_Legendary_HOTG',
         Disp_Name: 'Helmet of the Gods',
         Disp_Desc: 'Stories tell that the helmet once belonged to a powerfull godslayer',
         Disp_Art: "URL: Armor_Helmet_Legendary_HOTG.png",
@@ -26,7 +26,7 @@ const allItems = [
     },
 
     {
-        ID: 'Armor_Helmet_Common_BrzHelm',
+        ID: 'Armor_Head_Common_BrzHelm',
         Disp_Name: 'Bronze Helmet',
         Disp_Desc: 'A simple helmet of bronze.',
         Disp_Art: "URL: Armor_Helmet_Common_BrzHelm.png",
@@ -104,12 +104,12 @@ const allItems = [
     },
 
     {
-        ID: 'Armor_Helmet_Common_LthrHelm',
+        ID: 'Armor_Head_Common_LthrHelm',
         Disp_Name: 'Leather Cap',
         Disp_Desc: 'A simple cap of leather.',
-        Disp_Art: "URL: Armor_Helmet_Common_LthrHelm.png",
+        Disp_Art: '<img id="Armor_Head_Common_LthrHelm" src="itemsImages/Armor_Head_Common_LthrHelm.png" style="width:100%; height:100%;" draggable="true" ondragstart="dragBlack(event)">',
         Type: 'Armor',
-        Category: 'Helmet',
+        Category: 'Head',
         Rarity: 'Common',
         Price: 50,
 
@@ -133,11 +133,13 @@ const allItems = [
         ID: 'Armor_Chest_Common_LthrChst',
         Disp_Name: 'Leather Jerkin',
         Disp_Desc: 'A simple jerkin of leather.',
-        Disp_Art: "URL: Armor_Chest_Common_BrzChst.png",
+        Disp_Art: '<img id="Armor_Chest_Common_LthrChst" src="itemsImages/Armor_Chest_Common_LthrChst.png" style="width:100%; height:100%;" draggable="true" ondragstart="dragBlack(event)">',
         Type: 'Armor',
         Category: 'Chest',
         Rarity: 'Common',
         Price: 100,
+        Upgrade: ['Linen Cloth', 'Basic Leather'],
+        Upgrade_Amount: [1, 3],
 
         // Attributes
         Strenght: 0,
@@ -182,12 +184,12 @@ const allItems = [
     },
 
     {
-        ID: 'Armor_Helmet_Common_LinenHood',
+        ID: 'Armor_Head_Common_LinenHood',
         Disp_Name: 'Linen Hood',
         Disp_Desc: 'A simple hood of linen.',
         Disp_Art: "URL: Armor_Helmet_Common_LinenHood.png",
         Type: 'Armor',
-        Category: 'Helmet',
+        Category: 'Head',
         Rarity: 'Common',
         Price: 50,
 
@@ -253,6 +255,32 @@ const allItems = [
         PhysicalArmor: 0,
         MagicArmor: 0,
         HP: 10,
+        HPR: 0,
+        MP: 0,
+        MPR: 0,
+        TurnSpeed: 0,
+    },
+
+    {
+        ID: 'Weapon_1hSword_Common_IronSword',
+        Disp_Name: 'Iron Sword',
+        Disp_Desc: 'Simple sword forged from iron.',
+        Disp_Art: "URL: Weapon_1hSword_Common_IronSword.png",
+        Type: 'Weapon',
+        Category: '1-h Sword',
+        Rarity: 'Common',
+        Price: 200,
+
+        // Attributes
+        Strenght: 0,
+        Agility: 0,
+        Intellect: 0,
+
+        // Stats
+        Damage: 10,
+        PhysicalArmor: 0,
+        MagicArmor: 0,
+        HP: 0,
         HPR: 0,
         MP: 0,
         MPR: 0,
@@ -341,7 +369,7 @@ const allItems = [
         ID: 'Misc_Craft_Common_LinClth',
         Disp_Name: 'Linen Cloth',
         Disp_Desc: 'The simplest of cloths',
-        Disp_Art: "URL: Misc_Craft_Common_LinClth.png",
+        Disp_Art: '<img id="Misc_Craft_Common_LinClth" src="itemsImages/Misc_Craft_Common_LinClth.png" style="width:100%; height:100%;" draggable="true" ondragstart="drag(event)">',
         Type: 'Misc',
         Category: 'Craft',
         Rarity: 'Common',
@@ -372,6 +400,32 @@ const allItems = [
         Category: 'Junk',
         Rarity: 'Common',
         Price: 4,
+
+        // Attributes
+        Strenght: 0,
+        Agility: 0,
+        Intellect: 0,
+
+        // Stats
+        Damage: 0,
+        PhysicalArmor: 0,
+        MagicArmor: 0,
+        HP: 0,
+        HPR: 0,
+        MP: 0,
+        MPR: 0,
+        TurnSpeed: 0,
+    },
+
+    {
+        ID: 'Misc_Craft_Common_BscLthr',
+        Disp_Name: 'Basic Leather',
+        Disp_Desc: 'The simplest of cloths',
+        Disp_Art: '<img id="Misc_Craft_Common_BscLthr" src="itemsImages/Misc_Craft_Common_BscLthr.png" style="width:100%; height:100%;" draggable="true" ondragstart="dragBlack(event)">',
+        Type: 'Misc',
+        Category: 'Craft',
+        Rarity: 'Common',
+        Price: 2,
 
         // Attributes
         Strenght: 0,

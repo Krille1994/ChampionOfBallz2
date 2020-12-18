@@ -1,44 +1,135 @@
 const store1SpecialItems = [
-    { Disp_Name: 'specialItem1' },
-    { Disp_Name: 'specialItem2' },
-    { Disp_Name: 'specialItem3' },
-    { Disp_Name: 'specialItem4' },
-    { Disp_Name: 'specialItem5' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
 ];
 const store1BasicItems = [
-    { Disp_Name: 'basicItem1' },
-    { Disp_Name: 'basicItem2' },
-    { Disp_Name: 'basicItem3' },
-    { Disp_Name: 'basicItem4' },
-    { Disp_Name: 'basicItem5' },
-    { Disp_Name: 'basicItem6' },
-    { Disp_Name: 'basicItem7' },
-    { Disp_Name: 'basicItem8' },
-    { Disp_Name: 'basicItem9' },
-    { Disp_Name: 'basicItem10' },
-    { Disp_Name: 'basicItem11' },
-    { Disp_Name: 'basicItem12' },
-    { Disp_Name: 'basicItem13' },
-    { Disp_Name: 'basicItem14' },
-    { Disp_Name: 'basicItem15' },
-    { Disp_Name: 'basicItem16' },
-    { Disp_Name: 'basicItem17' },
-    { Disp_Name: 'basicItem18' },
-    { Disp_Name: 'basicItem19' },
-    { Disp_Name: 'basicItem20' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
+    { name: 'Leather Cap' },
 ];
-
-let shop1Stock = '';
+const storeStock1 = [
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+    {name: '', soldOut: false},
+];
+shop1Restock();
 function shop1Restock() {
-    let items = '';
-
     for (let i = 0; i < 3; i++) {
         let x = Math.floor(Math.random() * store1SpecialItems.length);
-        items += `<div>${store1SpecialItems[x].Disp_Name}</div>`;
+        storeStock1[i].name = store1SpecialItems[x].name;
     }
     for (let i = 0; i < 8; i++) {
         let y = Math.floor(Math.random() * store1BasicItems.length);
-        items += `<div>${store1BasicItems[y].Disp_Name}</div>`;
+        storeStock1[i+3].name = store1BasicItems[y].name;
     }
-    shop1Stock = items;
+}
+let shop1Stock = '';
+function createShop1Stock() {
+    shop1Stock = '';
+    for (let i = 0; i < storeStock1.length; i++) {
+        
+        if (storeStock1[i].soldOut == true) {
+            shop1Stock += `
+            <div style="float: left; margin-left: 1vw;">
+            ${createShop1StockHelper(i)}</div>
+            `; 
+        }
+        else {
+            shop1Stock += `
+            <div style="float: left; margin-left: 1vw;" 
+            onclick="showStoreItem('${storeStock1[i].name}', ${i})">
+            ${createShop1StockHelper(i)}</div>
+            `;
+        }
+    }
+}
+function createShop1StockHelper(index) {
+    let x = storeStock1[index].name;
+    for (let i = 0; i < allItems.length; i++) {
+        if (allItems[i].Disp_Name == x) {
+            if (storeStock1[index].soldOut == false) {
+                return `
+                        <div>${allItems[i].Disp_Name}</div>
+                        <div class="shop1Stock">${allItems[i].Disp_Art}</div>
+                        <div>${allItems[i].Price} Gold</div>
+                `;
+            }
+            else {
+                return `
+                        <div>${allItems[i].Disp_Name}</div>
+                        <div class="shop1Stock">${allItems[i].Disp_Art}</div>
+                        <div>Sold Out</div>
+                `;
+            }
+        } 
+    }
+}
+createShop1Stock();
+
+function showStoreItem(name, index) {
+    for (let i = 0; i < allItems.length; i++) {
+        if (allItems[i].Disp_Name == name) {
+            document.getElementById('shop1DisplayItemStats').innerHTML = `
+                <div>${allItems[i].Disp_Name}</div>
+                <div style="width: 10vw; height: 12vh;">
+                    ${allItems[i].Disp_Art}</div>
+                <div>${allItems[i].Disp_Desc}</div>
+                <div>Type: ${allItems[i].Type}</div>
+                <div>Rarity: ${allItems[i].Rarity}</div><br>
+                <div>Strength: ${allItems[i].Strenght}</div>
+                <div>Agility: ${allItems[i].Agility}</div>
+                <div>Intellect: ${allItems[i].Intellect}</div><br>
+                <div>Damage: ${allItems[i].Damage}</div>
+                <div>Physical Armor: ${allItems[i].PhysicalArmor}</div>
+                <div>Magic Armor: ${allItems[i].MagicArmor}</div>
+                <div>Health Points: ${allItems[i].HP}</div>
+                <div>HP Regeneration: ${allItems[i].HPR}</div>
+                <div>Mana: ${allItems[i].MP}</div>
+                <div>Mana Regeneration: ${allItems[i].MPR}</div>
+                <div>Turnspeed Bonus: ${allItems[i].TurnSpeed}</div>
+                <button onclick="buyItemFromShop1(${i}, ${index})" ${playerStats.gold >= allItems[i].Price ?
+                 '' : 'disabled'}>Buy for ${allItems[i].Price} Gold</button>
+            `;
+        }
+    }
+}
+function buyItemFromShop1(index, storeIndex) {
+    for (let i = 0; i < inventoryItems. length; i++) {
+        if (inventoryItems[i].item == '' && inventoryItems[i].locked == false) {
+            playerStats.gold -= allItems[index].Price;
+            inventoryItems[i].item = allItems[index].Disp_Art;
+            storeStock1[storeIndex].soldOut = true;
+            createShop1Stock();
+            show('shop1');
+            break;
+        }
+    }
 }
